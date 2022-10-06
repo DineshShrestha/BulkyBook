@@ -1,6 +1,5 @@
 ﻿using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +8,16 @@ using System.Threading.Tasks;
 
 namespace BulkyBook.DataAccess.Repository
 {
-    public class UnitOfWork : IUnitOfWork
+    public class CoverTypeRepository : Repository<CoverType>
     {
         private ApplicationDbContext _db;
-        public UnitOfWork(ApplicationDbContext db) 
+        public CoverTypeRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
-   
         }
-        public ICategoryRepository Category {get; private set;}
-        public ICoverTypeRepository CoverType { get; private set; }
-
-        public void Save()
+        public void Update(CoverType obj)
         {
-            _db.SaveChanges();
+            _db.CoverTypes.Update(obj);
         }
     }
 }

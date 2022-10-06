@@ -14,15 +14,5 @@ namespace BulkyBook.Models
         public int DisplayOrder { get; set; }
 
         public DateTime CreateDateTime { get; set; } = DateTime.Now;
-
-        public static implicit operator Category(BulkyBook.DataAccess.Repository.CategoryRepository v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static implicit operator Category(BulkyBook.DataAccess.Repository.CategoryRepository v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
